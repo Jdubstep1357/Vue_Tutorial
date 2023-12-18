@@ -29,7 +29,15 @@
             data() {
                 return {
                     greeting: 'Hello World'
-                }
+                };
+            },
+
+            // Automatically runs when page is run
+            mounted() {
+                // After 3 seconds update page
+                setTimeout(() => {
+                    this.greeting = 'Changed'
+                }, 3000);
             }
         }).mount('#app');
     </script>
