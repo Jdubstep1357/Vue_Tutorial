@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 1 Part 3 </title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-full grid place-items-center">
+
+    <div id="app">
+        <section>
+            <h2 class="font-bold mb-2">Assignments</h2>
+
+            <ul>
+                <!-- v-for loops through names -->
+                <li v-for="assignment in assignments">
+                    <label>
+                        {{ assignment.name }}
+                            <!-- v-model sets value to true if checked by checkbox -->
+                        <input type="checkbox" v-model="assignment.complete">
+                    </label>
+                </li>
+            </ul>
+
+            <pre>
+                <!-- values are set to true if checked by checkbox -->
+                {{ assignments }}
+            </pre>
+        </section>
+    </div>
+
+    <script>
+
+    // app is referenced by Vue
+        let app = {
+            data() {
+                return {
+                    assignments: [
+                        { name: 'Finish Project', complete: false },
+                        { name: 'Finish Chapter 4', complete: false },
+                        { name: 'Turn in Homework', complete: false },
+
+                    ]
+                }
+            }
+        };
+
+        Vue.createApp(app).mount('#app');
+    </script>
+    
+</body>
+</html>
