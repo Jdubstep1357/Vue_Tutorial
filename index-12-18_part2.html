@@ -15,6 +15,7 @@
 
             <ul>
                 <!-- v-for loops through names  -->
+                <!-- inProgressAssignments is taken below AKA computed property -->
                 <li v-for="assignment in inProgressAssignments"
                     :key="assignment.id">
                     <!-- :key is unique to current item. Keeps track of order of array. Otherwise wanky results -->
