@@ -13,6 +13,7 @@
         <!-- Calling component from template-->
         <!-- Submit represents a slot -->
         <app-button>Submit</app-button>
+        <app-button>Click me</app-button>
 
 
     </div>
@@ -32,7 +33,7 @@
                         <button class="bg-gray-200 hover:bg-gray-400 border rounded px-5 py-2
                         disabled:cursor-not-allowed" 
                         :disabled="processing">
-                            <!-- Slot takes text in between called component  -->
+                            <!-- Slot takes text in between called component, output: Submit  -->
                             <slot />    
                         </button>
                     
