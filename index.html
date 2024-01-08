@@ -1,36 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Section 1 part 1</title>
-    <!-- Vue CDN -->
+    <title>Section 2 Part 1 </title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Loading Animation -->
+    <style>
+        @keyframes spinner {
+            to {transform: rotate(360deg);}
+        }
+
+        .is-loading { color: transparent; }
+
+        .is-loading:before {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            margin-left: -10px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            border-top-color: #000;
+            animation: spinner .6s linear infinite;
+        }
+
+
+    </style>
+
 </head>
-<body>
+<body class="h-full grid place-items-center">
 
     <div id="app">
+        <!-- Calling component from template-->
+        <!-- Submit represents a slot -->
+        <app-button :processing="true">Submit</app-button>
 
-    
+
     </div>
 
-    <!-- Makes accces to div id of app -->
-    <script>
-        Vue.createApp({
-            data() {
-                return {
-                    greeting: 'Hello World'
-                };
-            },
+    <!-- Doing module enables javascript to work from other file -->
+    <script type="module">
+        
+        import App from "./js/components/App.js";
 
-            // Automatically runs when page is run
-            mounted() {
-                // After 3 seconds update page
-                setTimeout(() => {
-                    this.greeting = 'Changed'
-                }, 3000);
-            }
-        }).mount('#app');
+        Vue.createApp(App).mount('#app');
     </script>
     
 </body>
